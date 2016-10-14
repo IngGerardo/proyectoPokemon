@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\tipos;
 use DB;
+use App\pokemones;
+use App\pok_tipo;
 
 class inicioController extends Controller
 {
@@ -43,7 +45,17 @@ class inicioController extends Controller
 	}
 	public function quitar(Request $request)
 	{
-		echo $request->input('id'); //con este id pueden hacer el pdf, eliminar y agregar o quitar tipo
-		//return Redirect('/tipos/'.$request->input('id')); //Descomentar cuando se haya terminado el proceso
+		$pokemon = DB::table('tipos')
+		->join('pok_tipo','pok_tipo.id_tipo','=','tipos.id')
+		->join('pokemones','pok_tipo.id_pokemon','=','pokemones.id')
+        ->select('tipos.id as tipoId')
+        ->where('pokemones.id','=',$request->input('id'))
+        ->first();
+
+        //dd($pokemon);
+
+		pokemones::find($request->input('id'))->delete(); //con este id pueden hacer el pdf, eliminar y agregar o quitar tipo
+		//return Redirect('/tipos/'.$pokemon); //Descomentar cuando se haya terminado el proceso
+		return Redirect('/tipos/'.$pokemon->tipoId);
 	}
 }

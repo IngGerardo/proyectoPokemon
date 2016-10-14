@@ -52,9 +52,13 @@
             			<button type="submit" class="btn btn-danger">Quitar</button>
             		</form>
             	</div>
+              <div class="container-fluid">
+              <div class="row">
             	<div class="col-xs-6" align="left" style="text-align: justify; text-justify: inter-word;">
-            		<h4><b>Descripción</b></h4>
-            		<p id="descripcion"></p>
+            		    <h4><b>Descripción</b></h4>
+            		    <p id="descripcion"></p>
+                </div>
+                </div>
             	</div>
             	</div>
             	</div>
