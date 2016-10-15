@@ -25,9 +25,9 @@
       <div id="dataPokemon" class="modal fade" role="dialog">
         <div class="modal-dialog">
           <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header modal-header-success">
               <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <font color="black">
+              <font color="white">
                <h4 class="modal-title" align="center"><span class="glyphicon glyphicon-copy"></span><p id="nombrepokemon" /></h4>
               </font>
             </div>
