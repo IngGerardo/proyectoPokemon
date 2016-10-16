@@ -25,9 +25,9 @@
       <div id="dataPokemon" class="modal fade" role="dialog">
         <div class="modal-dialog">
           <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header modal-header-success">
               <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <font color="black">
+              <font color="white">
                <h4 class="modal-title" align="center"><span class="glyphicon glyphicon-copy"></span><p id="nombrepokemon" /></h4>
               </font>
             </div>
@@ -52,9 +52,13 @@
             			<button type="submit" class="btn btn-danger">Quitar</button>
             		</form>
             	</div>
+              <div class="container-fluid">
+              <div class="row">
             	<div class="col-xs-6" align="left" style="text-align: justify; text-justify: inter-word;">
-            		<h4><b>Descripción</b></h4>
-            		<p id="descripcion"></p>
+            		    <h4><b>Descripción</b></h4>
+            		    <p id="descripcion"></p>
+                </div>
+                </div>
             	</div>
             	</div>
             	</div>
