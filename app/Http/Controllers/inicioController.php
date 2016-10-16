@@ -33,7 +33,16 @@ class inicioController extends Controller
 	}
 	public function pdf(Request $request)
 	{
-		echo $request->input('id'); //con este id pueden hacer el pdf, eliminar y agregar o quitar tipo
+		
+		$pokemon=DB::table('pokemones')
+		->select('pokemones.id as id','pokemones.nombre as nombre', 'pokemones.descripcion as desc', 'pokemones.golpe as golpe', 'pokemones.peso as peso', 'pokemones.altura as altura', 'pokemones.cp as nivel' )
+		->where('pokemones.id', '=', $request->input('id'))
+		->first();
+    	$vista=view('pdfPokemon', compact('pokemon'));
+    	$dompdf=\App::make('dompdf.wrapper');
+    	$dompdf->loadHTML($vista);
+    	return $dompdf->stream('pokemons.pdf');
+		//echo $request->input('id'); //con este id pueden hacer el pdf, eliminar y agregar o quitar tipo
 		//return Redirect('/tipos/'.$request->input('id')); //Descomentar cuando se haya terminado el proceso
 	}
 	public function tipo(Request $request)
