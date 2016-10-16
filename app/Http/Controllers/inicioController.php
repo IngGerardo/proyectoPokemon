@@ -6,12 +6,14 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\tipos;
 use DB;
+use App\items;
 use App\pokemones;
 use App\pok_tipo;
 
 class inicioController extends Controller
 {
-
+	protected $table = 'pokemones';
+  
     public function consultarTipos()
 	{
 		$tipos = tipos::all();
@@ -42,6 +44,40 @@ class inicioController extends Controller
 	{
 		echo $request->input('id'); //con este id pueden hacer el pdf, eliminar y agregar o quitar tipo
 		//return Redirect('/tipos/'.$request->input('id')); //Descomentar cuando se haya terminado el proceso
+	}
+	public function poder(Request $request)
+	{
+		//$puntosCombate = DB::table('pokemones')
+		//->update(['cp' => $comprado]);
+		//echo $request->input('id');
+		$pokemones = DB::table('pokemones')
+		->select('pokemones.cp','pokemones.id')
+        ->where('pokemones.id','=',$request->input('id'))
+        ->first();
+
+        $items = DB::table('items')
+		->select('items.caramelos','items.polvos')
+        ->first();
+
+        $pokfin=$pokemones->cp+200;
+        $carfin=$items->caramelos-3;
+        $polfin=$items->polvos-100;
+
+		if ($items->caramelos>=3){
+			if ($items->polvos>=100){
+
+			$pok=DB::table('pokemones')	
+			->where('pokemones.id','=',$request->input('id'))
+			->update(['cp' => $pokfin]);
+
+			$ite=DB::table('items')		
+			->update(['caramelos' => $carfin, 'polvos' => $polfin]);
+			}else
+			echo '<script language="javascript">alert("No tienes polvos suficientes para asignar mas poder");</script>';		
+		}else 
+		echo '<script language="javascript">alert("No tienes caramelos suficientes para asignar mas poder");</script>'; 
+
+		return Redirect('/');
 	}
 	public function quitar(Request $request)
 	{

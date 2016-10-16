@@ -36,6 +36,11 @@
             	<div class="row">
             	<div class="col-xs-6" align="center">
             		<p id="imagen"></p>
+                <form action="{{ url('/Poder') }}" method="POST" style="display:inline;">
+                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                  <input type="hidden" id="id" name="id">
+                  <button type="submit" class="btn btn-warning">Poder</button>
+                </form>
             		<form action="{{ url('/PDF') }}" method="POST" style="display:inline;">
             			<input type="hidden" name="_token" value="{{ csrf_token() }}">
             			<input type="hidden" id="id" name="id">
@@ -44,7 +49,7 @@
             		<form action="{{ url('/Tipo') }}" method="POST" style="display:inline;">
             			<input type="hidden" name="_token" value="{{ csrf_token() }}">
             			<input type="hidden" id="id" name="id">
-            			<button type="submit" class="btn btn-info">Tipo</button>
+            			<button type="submit" class="btn btn-primary">Tipo</button>
             		</form>
             		<form action="{{ url('/Quitar') }}" method="POST" style="display:inline;">
             			<input type="hidden" name="_token" value="{{ csrf_token() }}">

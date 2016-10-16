@@ -6,6 +6,8 @@ Route::get('/','inicioController@consultarTipos');
 //Rutas de pokemones por tipo
 Route::get('/tipos/{id}','inicioController@tipoxpokemon');
 
+Route::post('/Poder','inicioController@poder');
+
 Route::post('/PDF','inicioController@pdf');
 
 Route::post('/Tipo','inicioController@tipo');
