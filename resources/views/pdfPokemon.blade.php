@@ -86,7 +86,10 @@ tr:nth-child(even){background-color: #f2f2f2}
 			</thead> 
 				<tbody> 
 				<tr>
-					<td><font FACE="sans-serif"><p>{{ $pokemon->tipo }}</p></font></td>  
+											
+					<td>@foreach($tiposPok as $tipos)	<font FACE="sans-serif"><p>{{ $tipos->tipo }}</p></font>
+						@endforeach
+					</td>  		
 					<td><font FACE="sans-serif"><p>{{ $pokemon->golpe }}</p></font></td> 
 					<td><font FACE="sans-serif"><p>{{ $pokemon->peso }}</p></font></td> 
 					<td><font FACE="sans-serif"><p>{{ $pokemon->altura }}</p></font></td> 
