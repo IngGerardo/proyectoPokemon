@@ -41,7 +41,7 @@
             			<input type="hidden" id="id" name="id">
             			<button type="submit" class="btn btn-success">PDF</button>
             		</form>
-            		<form action="{{ url('/Tipo') }}" method="POST" style="display:inline;">
+            		<form action="{{ url('/Tipopokemon') }}" method="POST" style="display:inline;">
             			<input type="hidden" name="_token" value="{{ csrf_token() }}">
             			<input type="hidden" id="id" name="id">
             			<button type="submit" class="btn btn-info">Tipo</button>

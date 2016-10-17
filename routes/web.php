@@ -8,6 +8,10 @@ Route::get('/tipos/{id}','inicioController@tipoxpokemon');
 
 Route::post('/PDF','inicioController@pdf');
 
-Route::post('/Tipo','inicioController@tipo');
+Route::post('/Tipopokemon','inicioController@tipo');
 
 Route::post('/Quitar','inicioController@quitar');
+
+Route::post('/poketip/{idp}','inicioController@ponertipo');
+
+Route::get('/poketipo/{idp}','inicioController@poketipo');

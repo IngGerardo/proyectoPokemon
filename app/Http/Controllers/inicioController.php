@@ -37,11 +37,82 @@ class inicioController extends Controller
 	{
 		echo $request->input('id'); //con este id pueden hacer el pdf, eliminar y agregar o quitar tipo
 		//return Redirect('/tipos/'.$request->input('id')); //Descomentar cuando se haya terminado el proceso
+
 	}
 	public function tipo(Request $request)
 	{
-		echo $request->input('id'); //con este id pueden hacer el pdf, eliminar y agregar o quitar tipo
+		$poke = DB::table('tipos')
+		->join('pok_tipo','pok_tipo.id_tipo','=','tipos.id')
+		->join('pokemones','pok_tipo.id_pokemon','=','pokemones.id')
+        ->select('pokemones.nombre as pnombre', 'pokemones.id as idp')
+        ->where('pokemones.id','=',$request->input('id'))
+        ->first();
+
+        $tipos=tipos::all();
+
+        $pasign=DB::table('tipos AS u')
+        ->select('up.id as idup','u.id','u.nombre')
+        ->join('pok_tipo AS up','u.id','=','up.id_tipo' )
+        ->where('up.id_pokemon','=', $request->input('id'))
+        ->get();
+
+        $Lista=DB::table('pok_tipo AS up')
+        ->where('up.id_pokemon','=',$request->input('id'))
+        ->pluck('up.id_tipo');
+
+
+        $tiposNo=DB::table('tipos')
+        ->whereNotIn('id',$Lista)
+        ->get();
+
+
+        $pokemones=pokemones::find($request->input('id'));
+
+		return view('asignarTipo',compact('poke','tipos','pasign','tiposNo','pokemones'));
+
+		//echo $request->input('id'); //con este id pueden hacer el pdf, eliminar y agregar o quitar tipo
 		//return Redirect('/tipos/'.$request->input('id')); //Descomentar cuando se haya terminado el proceso
+	}
+
+	public function ponertipo($idp, Request $datos){
+		 $nuevo=new pok_tipo(); 
+            $nuevo->id_pokemon=$idp;
+            $nuevo->id_tipo=$datos->input('user');
+            $nuevo->save();
+
+            return Redirect('/poketipo/'.$idp);
+
+	}
+
+	public function poketipo($idp){
+		 $poke = DB::table('tipos')
+		->join('pok_tipo','pok_tipo.id_tipo','=','tipos.id')
+		->join('pokemones','pok_tipo.id_pokemon','=','pokemones.id')
+        ->select('pokemones.nombre as pnombre', 'pokemones.id as idp')
+        ->where('pokemones.id','=',$idp)
+        ->first();
+
+        $tipos=tipos::all();
+
+        $pasign=DB::table('tipos AS u')
+        ->select('up.id as idup','u.id','u.nombre')
+        ->join('pok_tipo AS up','u.id','=','up.id_tipo' )
+        ->where('up.id_pokemon','=', $idp)
+        ->get();
+
+        $Lista=DB::table('pok_tipo AS up')
+        ->where('up.id_pokemon','=',$idp)
+        ->pluck('up.id_tipo');
+
+
+        $tiposNo=DB::table('tipos')
+        ->whereNotIn('id',$Lista)
+        ->get();
+
+
+        $pokemones=pokemones::find($idp);
+
+		return view('asignarTipo',compact('poke','tipos','pasign','tiposNo','pokemones'));
 	}
 	public function quitar(Request $request)
 	{
