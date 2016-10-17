@@ -51,8 +51,8 @@
    <font size="8px">
      <p>Los Pokémon de tipo fuego basan sus ataques principalmente en el control de este elemento y la mayoría de estos ataques 
       pueden quemar al Pokémon oponente. <br>
-      Son apasionados y algunos de mal carácter (como el Charizard de Ash), viven en cuevas o zonas rocosas y muy áridas, y más 
-      probable aún cerca de volcanes activos</p>          
+      Son apasionados y algunos de mal carácter, viven en cuevas o zonas rocosas y muy áridas, y es más probable que vivan cerca 
+      de volcanes activos</p>          
   </font>
   @elseif ($tipo->nombre== "Electrico")
    <font size="8px">
@@ -62,13 +62,13 @@
   </font>
   @elseif ($tipo->nombre== "Roca")
    <font size="8px">
-     <p>El tipo roca destaca por su gran defensa frente a ataques físicos. Sin embargo, tiene en su contra que presenta varias debilidades 
+     <p>Los Pokémon tipo roca destacan por su gran defensa frente a ataques físicos. Sin embargo, tienen en su contra varias debilidades 
       con respecto a otros tipos, y los Pokémon de este tipo no se caracterizan por ser muy veloces. Cabe destacar que la mayoría de los 
       movimientos de tipo roca (sobre todo los físicos) poseen baja precisión a la hora de atacar.</p>          
   </font>
    @elseif ($tipo->nombre== "Agua")
    <font size="8px">
-     <p> los Pokémon de tipo agua se sienten a menudo libres en cualquier sitio donde haya agua a su disposición. La mayoría de estos Pokémon 
+     <p>Los Pokémon de tipo agua se sienten a menudo libres en cualquier sitio donde haya agua a su disposición. La mayoría de estos Pokémon 
       pertenecen también a otros tipos. Por esto se dice que los Pokémon de agua son muy adaptables y su dinamismo los hace destacarse en 
       concursos, presentaciones y evasión de ataques. Como viven en el agua, muchos de ellos están provistos de aletas.</p>          
   </font>
@@ -76,8 +76,8 @@
    <font size="8px">
      <p>Es un tipo elemental ancestral; muchos de los últimos Pokémon legendarios descubiertos, considerados deidades, son del tipo dragón: 
       Rayquaza (cielo), Giratina (antimateria), Dialga (tiempo), Palkia (espacio), Zekrom y Reshiram (Yin y Yang), Kyurem (el cero absoluto, 
-      ausencia de energía) y Zygarde (orden). Otros Pokémon de este tipo se caracterizan por ser difíciles de atrapar y entrenar. Interesante 
-      es el hecho de que muchos Pokémon del tipo "dragón" llegan a superar las estadísticas comunes.</p>          
+      ausencia de energía) y Zygarde (orden). Otros Pokémon de este tipo se caracterizan por ser difíciles de atrapar y entrenar. Es interesante 
+      el hecho de que muchos Pokémon del tipo "Dragón" llegan a superar las estadísticas comunes.</p>          
   </font>
     @endif
 </div>

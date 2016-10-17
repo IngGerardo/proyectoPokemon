@@ -26,7 +26,7 @@ class inicioController extends Controller
     	$nuevo->cp=$request->input('cp');
     	$nuevo->save();
 
-    	return redirect('/');
+    	return Redirect('/')->with('registro', '¡Pokémon registrado exitosamente a la Pokédex!');
 	}
   
     public function consultarTipos()
@@ -142,7 +142,7 @@ class inicioController extends Controller
 		$pokemones = DB::table('tipos')
 		->join('pok_tipo','pok_tipo.id_tipo','=','tipos.id')
 		->join('pokemones','pok_tipo.id_pokemon','=','pokemones.id')
-		->select('pokemones.cp','tipos.id as tipo')
+		->select('pokemones.cp','tipos.id as tipo','pokemones.nombre')
         ->where('pokemones.id','=',$request->input('id'))
         ->first();
 
@@ -150,6 +150,8 @@ class inicioController extends Controller
 		->select('items.caramelos','items.polvos')
         ->first();
 
+        $nombre=$pokemones->nombre;
+        $poder=$pokemones->cp;
         $pokfin=$pokemones->cp+200;
         $carfin=$items->caramelos-3;
         $polfin=$items->polvos-100;
@@ -168,7 +170,7 @@ class inicioController extends Controller
 		}else
 		return redirect('/tipos/'.$pokemones->tipo)->with('caramelos', '¡No tienes caramelos suficientes para asignar mas poder!'); 
  
-		return Redirect('/tipos/'.$pokemones->tipo)->with('poder', '¡Poder asignado exitosamente a tu pokémon!');
+		return Redirect('/tipos/'.$pokemones->tipo)->with('poder', '¡Poder asignado a '.$nombre.' de '.$poder.' a '.$pokfin.'!');
 	}
 
 	public function ponertipo($idp, Request $datos){

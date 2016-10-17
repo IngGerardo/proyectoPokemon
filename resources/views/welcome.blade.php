@@ -84,6 +84,12 @@
                 <!-- Page Header -->
                 <div class="col-lg-12">
                     @yield('encabezado')
+                    @if (session('registro'))
+                      <div id="alert" class="alert alert-success alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"></span>&times;</button>
+                          <strong>{{ session('registro') }}</strong>
+                      </div>
+                    @endif
                 </div>
                 <!--End Page Header -->
             </div>

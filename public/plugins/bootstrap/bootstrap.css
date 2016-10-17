@@ -1405,7 +1405,6 @@ table {
   background-color: transparent;
 }
 th {
-  text-align: left;
 }
 .table {
   width: 100%;
@@ -1420,11 +1419,11 @@ th {
   padding: 8px;
   line-height: 1.42857143;
   vertical-align: top;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #428BCA;
 }
 .table > thead > tr > th {
   vertical-align: bottom;
-  border-bottom: 2px solid #ddd;
+  border-bottom: 2px solid #428BCA;
 }
 .table > caption + thead > tr:first-child > th,
 .table > colgroup + thead > tr:first-child > th,
