@@ -12,7 +12,7 @@ Route::post('/Poder','inicioController@poder');
 
 Route::post('/PDF','inicioController@pdf');
 
-Route::post('/Tipo','inicioController@tipo');
+Route::post('/Tipopokemon','inicioController@tipo');
 
 Route::post('/Quitar','inicioController@quitar');
 
@@ -21,3 +21,10 @@ Route::post('/polvosPokemon','inicioController@polvosPokemon');
 Route::post('/caramelosPokemon','inicioController@caramelosPokemon');
 
 Route::post('/guardarPokemon','inicioController@guardarPokemon');
+
+Route::post('/poketip/{idp}','inicioController@ponertipo');
+
+Route::get('/poketipo/{idp}','inicioController@poketipo');
+
+Route::get('/quitartipo/{idu}/{idp}','inicioController@quitartipo');
+
