@@ -41,6 +41,12 @@
 							<label for="cp">Puntos de combate:</label>
 							<input name="cp" type="number" class="form-control" placeholder="Puntos de combate" required>
 						</div>
+						 <div class="form-group">
+			                <label for="image">Imágen:</label>
+			                <div class="input-group">  
+			                  <input type="file" name="imagen" id="imagen" requiered />
+			                </div>  
+			              </div> 
 						<input type="submit" value="Registrar" class="btn btn-primary" align="center">
 						<a href="{{url('/')}}" class="btn btn-danger" align="center">Cancelar</a>
 					</form>
