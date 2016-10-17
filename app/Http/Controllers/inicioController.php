@@ -47,7 +47,7 @@ class inicioController extends Controller
 		$ite=DB::table('items')		
 		->update(['caramelos' => $car, 'polvos' => $pol]);
 		
-		return redirect('/');
+		return redirect('/')->with('addPolvo', '¡Asignaste '.$request->input('polvos').' polvos mágicos a tu Pokédex!');;
 	}
 	public function caramelosPokemon(Request $request)
 	{
@@ -61,7 +61,7 @@ class inicioController extends Controller
 		$ite=DB::table('items')		
 		->update(['caramelos' => $car, 'polvos' => $pol]);
 		
-		return redirect('/');
+		return redirect('/')->with('addCaramelos', '¡Asignaste '.$request->input('caramelos').' caramelos a tu Pokédex!');;;
 	}
 
 	public function registroPokemon()
@@ -101,7 +101,7 @@ class inicioController extends Controller
 		->select('tipos.nombre as tipo')
 		->where('pokemones.id', '=', $request->input('id'))
 		->get();
-		
+
     	$vista=view('pdfPokemon', compact('pokemon','tiposPok'));
     	$dompdf=\App::make('dompdf.wrapper');
     	$dompdf->loadHTML($vista);

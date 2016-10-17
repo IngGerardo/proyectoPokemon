@@ -90,6 +90,18 @@
                           <strong>{{ session('registro') }}</strong>
                       </div>
                     @endif
+                     @if (session('addPolvo'))
+                      <div id="alert" class="alert alert-success alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"></span>&times;</button>
+                          <strong>{{ session('addPolvo') }}</strong>
+                      </div>
+                    @endif
+                     @if (session('addCaramelos'))
+                      <div id="alert" class="alert alert-success alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"></span>&times;</button>
+                          <strong>{{ session('addCaramelos') }}</strong>
+                      </div>
+                    @endif
                 </div>
                 <!--End Page Header -->
             </div>
