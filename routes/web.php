@@ -15,3 +15,5 @@ Route::post('/Quitar','inicioController@quitar');
 Route::post('/poketip/{idp}','inicioController@ponertipo');
 
 Route::get('/poketipo/{idp}','inicioController@poketipo');
+
+Route::get('/quitartipo/{idu}/{idp}','inicioController@quitartipo');

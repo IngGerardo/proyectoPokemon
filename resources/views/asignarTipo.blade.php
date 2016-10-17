@@ -28,7 +28,7 @@
 			<tr>
 				<td>{{$u->id}}</td>
 				<td>{{$u->nombre}}</td>
-				<td><a href="" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Quitar</a></td>
+				<td><a href="{{url('/quitartipo')}}/{{$u->idup}}/{{$poke->idp}}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Quitar</a></td>
 			</tr>
 			@endforeach
 		</tbody>

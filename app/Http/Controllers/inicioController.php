@@ -138,4 +138,9 @@ class inicioController extends Controller
 		//return Redirect('/tipos/'.$pokemon); //Descomentar cuando se haya terminado el proceso
 		return Redirect('/tipos/'.$pokemon->tipoId);
 	}
+
+    public function quitartipo($idu, $idp){
+        pok_tipo::find($idu)->delete();
+        return Redirect('/poketipo/'.$idp);
+    }
 }
