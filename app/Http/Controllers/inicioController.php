@@ -13,11 +13,32 @@ use App\pok_tipo;
 class inicioController extends Controller
 {
 	protected $table = 'pokemones';
+
+	public function guardarPokemon(Request $request)
+	{
+		$nuevo= new pokemones();
+    	$nuevo->nombre=$request->input('nombre');
+    	$nuevo->descripcion=$request->input('descripcion');
+    	$nuevo->golpe=$request->input('golpe');
+    	$nuevo->golpef=$request->input('golpef');
+    	$nuevo->peso=$request->input('peso');
+    	$nuevo->altura=$request->input('altura');
+    	$nuevo->cp=$request->input('cp');
+    	$nuevo->save();
+
+    	return redirect('/');
+	}
   
     public function consultarTipos()
 	{
 		$tipos = tipos::all();
 		return view('principal',compact('tipos'));
+	}
+
+	public function registroPokemon()
+	{
+		$tipos = tipos::all();
+		return view('registroPokemon',compact('tipos'));
 	}
 
 	public function tipoxpokemon($id)
@@ -50,8 +71,10 @@ class inicioController extends Controller
 		//$puntosCombate = DB::table('pokemones')
 		//->update(['cp' => $comprado]);
 		//echo $request->input('id');
-		$pokemones = DB::table('pokemones')
-		->select('pokemones.cp','pokemones.id')
+		$pokemones = DB::table('tipos')
+		->join('pok_tipo','pok_tipo.id_tipo','=','tipos.id')
+		->join('pokemones','pok_tipo.id_pokemon','=','pokemones.id')
+		->select('pokemones.cp','tipos.id as tipo')
         ->where('pokemones.id','=',$request->input('id'))
         ->first();
 
@@ -73,11 +96,11 @@ class inicioController extends Controller
 			$ite=DB::table('items')		
 			->update(['caramelos' => $carfin, 'polvos' => $polfin]);
 			}else
-			echo '<script language="javascript">alert("No tienes polvos suficientes para asignar mas poder");</script>';		
-		}else 
-		echo '<script language="javascript">alert("No tienes caramelos suficientes para asignar mas poder");</script>'; 
-
-		return Redirect('/');
+			return redirect('/tipos/'.$pokemones->tipo)->with('polvos', '¡No tienes polvos suficientes para asignar mas poder!');					
+		}else
+		return redirect('/tipos/'.$pokemones->tipo)->with('caramelos', '¡No tienes caramelos suficientes para asignar mas poder!'); 
+ 
+		return Redirect('/tipos/'.$pokemones->tipo)->with('poder', '¡Poder asignado exitosamente a tu pokémon!');
 	}
 	public function quitar(Request $request)
 	{

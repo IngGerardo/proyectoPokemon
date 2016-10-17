@@ -4387,8 +4387,9 @@ a.list-group-item.active > .badge,
 }
 @media screen and (min-width: 768px) {
   .jumbotron {
-    padding-top: 48px;
-    padding-bottom: 48px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color:#a6e491; 
   }
   .container .jumbotron {
     padding-right: 60px;
