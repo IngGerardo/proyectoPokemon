@@ -18,4 +18,6 @@ Route::post('/Quitar','inicioController@quitar');
 
 Route::post('/polvosPokemon','inicioController@polvosPokemon');
 
+Route::post('/caramelosPokemon','inicioController@caramelosPokemon');
+
 Route::post('/guardarPokemon','inicioController@guardarPokemon');

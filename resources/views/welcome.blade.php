@@ -41,7 +41,7 @@
                 
                 <li><a href="" data-target="#polvosPokemon" data-toggle="modal"><i class="fa fa-magic fa-2x"></i></a></li>
 
-                <li><a href="{{url('/RegistroCaramelos')}}"><i class="fa fa-heart  fa-2x"></i></a></li>
+                <li><a href="" data-target="#caramelosPokemon" data-toggle="modal"><i class="fa fa-heart  fa-2x"></i></a></li>
 
             </ul>
             <!-- end navbar-top-links -->
@@ -116,8 +116,8 @@
               <form  action="{{ url('/polvosPokemon')}}" method="POST">
                 <div class="box-body">
                   <div class="form-group">
-                    <label for="polvos"><b>Polvos:</b></label>
-                    <input type="number" name="polvos" id="polvos" class="form-control" required placeholder="polvos">
+                    <label for="polvos"><b>Introduzca los polvos estelares:</b></label>
+                    <input type="number" name="polvos" id="polvos" class="form-control" required placeholder="Polvos">
                     <p id="correo"></p>
                   </div>
                   <div class="form-group" align="center">
@@ -133,6 +133,36 @@
         </div>
       </div>
     
+     <div id="caramelosPokemon" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header modal-header-success">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <font color="white">
+               <h4 class="modal-title" align="center">   ¿Agregar caramelos?</h4>
+              </font>
+            </div>
+            <div class="modal-body">
+              <form  action="{{ url('/caramelosPokemon')}}" method="POST">
+                <div class="box-body">
+                  <div class="form-group">
+                    <label for="polvos"><b>Introduzca los caramelos:</b></label>
+                    <input type="number" name="caramelos" id="caramelos" class="form-control" required placeholder="Caramelos">
+                    <p id="correo"></p>
+                  </div>
+                  <div class="form-group" align="center">
+                    <button type="submit" id="submit" class="btn btn-success">Confirmar</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                  </div>
+                  <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
+              </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
     <script src="{{ asset("plugins/bootstrap/bootstrap.min.js") }}"></script>
     <script src="{{ asset("plugins/metisMenu/jquery.metisMenu.js") }}"></script>
     <script src="{{ asset("plugins/pace/pace.js") }}"></script>

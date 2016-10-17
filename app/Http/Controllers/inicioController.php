@@ -37,10 +37,29 @@ class inicioController extends Controller
 
 	public function polvosPokemon(Request $request)
 	{
-		$item= new items();
-		$item->caramelos=$item->caramelos;
-		$item->polvos=$item->polvos + $request->input('polvos');
-		$item->save();
+		$item = DB::table('items')
+		->select('items.caramelos','items.polvos')
+        ->first();
+
+		$car=$item->caramelos+0;
+		$pol=$item->polvos + $request->input('polvos');
+
+		$ite=DB::table('items')		
+		->update(['caramelos' => $car, 'polvos' => $pol]);
+		
+		return redirect('/');
+	}
+	public function caramelosPokemon(Request $request)
+	{
+		$item = DB::table('items')
+		->select('items.caramelos','items.polvos')
+        ->first();
+
+		$car=$item->caramelos+ $request->input('caramelos');
+		$pol=$item->polvos+0; 
+
+		$ite=DB::table('items')		
+		->update(['caramelos' => $car, 'polvos' => $pol]);
 		
 		return redirect('/');
 	}
