@@ -39,7 +39,7 @@
                 <!-- main dropdown -->
                 <li><a href="{{url('/RegistroPokemon')}}"><i class="fa fa-pinterest-square fa-2x"></i></a></li>
                 
-                <li><a href="{{url('/RegistroPolvos')}}"><i class="fa fa-magic fa-2x"></i></a></li>
+                <li><a href="" data-target="#polvosPokemon" data-toggle="modal"><i class="fa fa-magic fa-2x"></i></a></li>
 
                 <li><a href="{{url('/RegistroCaramelos')}}"><i class="fa fa-heart  fa-2x"></i></a></li>
 
@@ -103,6 +103,35 @@
 
     </div>
     <!-- end wrapper -->
+          <div id="polvosPokemon" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header modal-header-success">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <font color="white">
+               <h4 class="modal-title" align="center">   ¿Agregar polvos estelares?</h4>
+              </font>
+            </div>
+            <div class="modal-body">
+              <form  action="{{ url('/polvosPokemon')}}" method="POST">
+                <div class="box-body">
+                  <div class="form-group">
+                    <label for="polvos"><b>Polvos:</b></label>
+                    <input type="number" name="polvos" id="polvos" class="form-control" required placeholder="polvos">
+                    <p id="correo"></p>
+                  </div>
+                  <div class="form-group" align="center">
+                    <button type="submit" id="submit" class="btn btn-success">Confirmar</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                  </div>
+                  <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
+              </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     
     <script src="{{ asset("plugins/bootstrap/bootstrap.min.js") }}"></script>
     <script src="{{ asset("plugins/metisMenu/jquery.metisMenu.js") }}"></script>

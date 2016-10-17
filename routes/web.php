@@ -16,4 +16,6 @@ Route::post('/Tipo','inicioController@tipo');
 
 Route::post('/Quitar','inicioController@quitar');
 
+Route::post('/polvosPokemon','inicioController@polvosPokemon');
+
 Route::post('/guardarPokemon','inicioController@guardarPokemon');

@@ -35,6 +35,16 @@ class inicioController extends Controller
 		return view('principal',compact('tipos'));
 	}
 
+	public function polvosPokemon(Request $request)
+	{
+		$item= new items();
+		$item->caramelos=$item->caramelos;
+		$item->polvos=$item->polvos + $request->input('polvos');
+		$item->save();
+		
+		return redirect('/');
+	}
+
 	public function registroPokemon()
 	{
 		$tipos = tipos::all();
