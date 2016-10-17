@@ -44,7 +44,8 @@
 						 <div class="form-group">
 			                <label for="image">Imágen:</label>
 			                <div class="input-group">  
-			                  <input type="file" name="imagen" id="imagen" requiered />
+			                  <input type="file" name="imagen" id="imagen" required /> no se te quita la maña es required!!!!!!!!! intenta hacer push
+
 			                </div>  
 			              </div> 
 						<input type="submit" value="Registrar" class="btn btn-primary" align="center">
