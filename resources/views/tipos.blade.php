@@ -18,7 +18,6 @@
     @endif
   </h2>
 @stop
-en que parte quieres que te salga el
 @section ('contenido')
 <br>
               @if (session('poder'))
