@@ -77,6 +77,7 @@ tr:nth-child(even){background-color: #f2f2f2}
 		<table > 
 			<thead> 
 				<tr class="encabezado" border="2px"> 
+					<th><font FACE="sans-serif"><p>Tipo</p></font></th> 
 					<th><font FACE="sans-serif"><p>Ataque</p></font></th> 
 					<th><font FACE="sans-serif"><p>Peso</p></font></th> 
 					<th><font FACE="sans-serif"><p>Altura</p></font></th> 
@@ -84,7 +85,8 @@ tr:nth-child(even){background-color: #f2f2f2}
 				</tr> 
 			</thead> 
 				<tbody> 
-				<tr> 
+				<tr>
+					<td><font FACE="sans-serif"><p>{{ $pokemon->tipo }}</p></font></td>  
 					<td><font FACE="sans-serif"><p>{{ $pokemon->golpe }}</p></font></td> 
 					<td><font FACE="sans-serif"><p>{{ $pokemon->peso }}</p></font></td> 
 					<td><font FACE="sans-serif"><p>{{ $pokemon->altura }}</p></font></td> 

@@ -88,8 +88,10 @@ class inicioController extends Controller
 	public function pdf(Request $request)
 	{
 		
-		$pokemon=DB::table('pokemones')
-		->select('pokemones.id as id','pokemones.nombre as nombre', 'pokemones.descripcion as desc', 'pokemones.golpe as golpe', 'pokemones.peso as peso', 'pokemones.altura as altura', 'pokemones.cp as nivel' )
+		$pokemon=DB::table('tipos')
+		->join('pok_tipo','pok_tipo.id_tipo','=','tipos.id')
+		->join('pokemones','pok_tipo.id_pokemon','=','pokemones.id')
+		->select('pokemones.id as id','pokemones.nombre as nombre', 'pokemones.descripcion as desc', 'pokemones.golpe as golpe', 'pokemones.peso as peso', 'pokemones.altura as altura', 'pokemones.cp as nivel','tipos.nombre as tipo')
 		->where('pokemones.id', '=', $request->input('id'))
 		->first();
     	$vista=view('pdfPokemon', compact('pokemon'));
