@@ -4,6 +4,9 @@
 	<br>
 	<h2>Asignar tipo a {{$poke->pnombre}}</h2>
 	<br>
+@stop
+
+@section ('contenido')
 	<form method='POST' action="{{url('/poketip')}}/{{$poke->idp}}">
 		<input type="hidden" name="_token" value="{{csrf_token()}}">
 		<div class="form-group">
@@ -28,13 +31,9 @@
 			<tr>
 				<td>{{$u->id}}</td>
 				<td>{{$u->nombre}}</td>
-				<td><a href="{{url('/quitartipo')}}/{{$u->idup}}/{{$poke->idp}}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Quitar</a></td>
+				<td><a href="{{url('/quitartipo')}}/{{$u->idup}}/{{$poke->idp}}" class="btn btn-danger btn-xs"><span class="fa fa-times" aria-hidden="true"></span> Quitar</a></td>
 			</tr>
 			@endforeach
 		</tbody>
 	</table>
-@stop
-
-@section ('contenido')
-		
 @stop
